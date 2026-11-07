@@ -41,6 +41,10 @@
     .btn.primary { background:var(--red); color:#fff; box-shadow:0 10px 30px #e6394655; }
     .btn.primary:hover { transform:translateY(-2px); box-shadow:0 14px 34px #e6394677; }
     .btn.ghost { border:1px solid var(--line); color:#fff; background:var(--card); }
+    /* Official Google Play badge, shown as provided (only its transparent margin was trimmed). */
+    .badge { display:inline-flex; transition:transform .15s ease; }
+    .badge:hover { transform:translateY(-2px); }
+    .badge img { display:block; height:56px; width:auto; }
     .note { color:var(--muted); font-size:.9rem; margin-top:12px; }
 
     .art { position:relative; display:flex; justify-content:center; }
@@ -87,7 +91,7 @@
         <h1>İstanbul <em>Street Runner</em></h1>
         <p>İstanbul sokaklarında durmadan koş. Tramvaydan kaç, simit arabasının üstünden atla, martıya simidini kaptırma. İstiklal'den Boğaz'a beş semt, her semt bir seviye.</p>
         <div class="cta">
-          <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.lenstedreal.istanbulrunner">▶ Google Play'den indir</a>
+          <a class="badge" href="https://play.google.com/store/apps/details?id=com.lenstedreal.istanbulrunner"><img src="/google-play-badge.png" alt="Google Play'den indir" width="811" height="241"></a>
           <a class="btn ghost" href="/istanbulstreetrunner/">Ücretsiz</a>
         </div>
         <p class="note">An endless runner set in the streets of Istanbul. Free to play on Google Play.</p>
