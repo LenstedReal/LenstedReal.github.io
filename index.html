@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LenstedReal</title>
-  <meta name="description" content="LenstedReal — Türkiye'den bağımsız geliştirici. Oyunlar: İstanbul Street Runner ve Derby Arena.">
+  <meta name="description" content="LenstedReal — Türkiye'den bağımsız geliştirici. Oyunlar: İstanbul Street Runner ve Derby Arena. Uygulamalar: Nexora Watch.">
   <meta name="theme-color" content="#121726">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5 55.4 18.5v27L32 59 8.6 45.5v-27z' fill='%231e2a4a' stroke='%23f9c74f' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M19.5 23v18h9.5' fill='none' stroke='%23f7f8fb' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M35.5 41V23h5.6a5.4 5.4 0 0 1 0 10.8h-5.6m5.9 0 4.6 7.2' fill='none' stroke='%23f9c74f' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,6 +103,13 @@
     .soon { display:inline-flex; align-items:center; gap:10px; min-height:56px; padding:8px 18px; border-radius:14px; border:1px solid #ff8a1f88; background:#ff8a1f24; color:#ffe2c4; font-weight:800; line-height:1.25; }
     .soon i { width:10px; height:10px; border-radius:50%; background:#ff8a1f; flex-shrink:0; animation:soon 1.8s ease-out infinite; }
     @keyframes soon { 0% { box-shadow:0 0 0 0 #ff8a1f99; } 100% { box-shadow:0 0 0 12px #ff8a1f00; } }
+    /* Apps: same card as a game, in Nexora's blue. */
+    .game.app h2 em { color:#38bdf8; }
+    .game.app ul.docs a::after { color:#38bdf8; }
+    .game.app .soon { border-color:#38bdf888; background:#38bdf824; color:#d8f1ff; }
+    .game.app .soon i { background:#38bdf8; animation-name:soonb; }
+    .game.app .soon small { display:block; color:#a9dcf5; font-weight:600; font-size:.82rem; }
+    @keyframes soonb { 0% { box-shadow:0 0 0 0 #38bdf899; } 100% { box-shadow:0 0 0 12px #38bdf800; } }
     @media (max-width:760px) {
       .jump { justify-content:center; }
       .game { grid-template-columns:1fr; gap:16px; padding:20px; }
@@ -127,12 +134,13 @@
     <header class="hero">
       <div>
         <h1>Lensted<span>Real</span></h1>
-        <p>Türkiye'den bağımsız geliştirici. Oyunlarım ve belgeleri bu sayfada.</p>
-        <nav class="jump" aria-label="Oyunlar · Games">
+        <p>Türkiye'den bağımsız geliştirici. Oyunlarım, uygulamalarım ve belgeleri bu sayfada.</p>
+        <nav class="jump" aria-label="Oyunlar ve uygulamalar · Games and apps">
           <a class="btn ghost" href="#istanbulstreetrunner">İstanbul Street Runner</a>
           <a class="btn ghost" href="#derbyarena">Derby Arena</a>
+          <a class="btn ghost" href="#nexorawatch">Nexora Watch</a>
         </nav>
-        <p class="note">An independent developer from Türkiye. My games and their documents are on this page.</p>
+        <p class="note">An independent developer from Türkiye. My games, apps and their documents are on this page.</p>
       </div>
       <div class="art">
         <svg viewBox="0 0 64 64" role="img" aria-label="LenstedReal" xmlns="http://www.w3.org/2000/svg"><title>LenstedReal</title><defs><linearGradient id="lrg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a3a66"/><stop offset="1" stop-color="#141a2c"/></linearGradient></defs><rect width="64" height="64" fill="#121726"/><path d="M32 5 55.4 18.5v27L32 59 8.6 45.5v-27z" fill="url(#lrg)" stroke="#f9c74f" stroke-width="3" stroke-linejoin="round"/><path d="M19.5 23v18h9.5" fill="none" stroke="#f7f8fb" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M35.5 41V23h5.6a5.4 5.4 0 0 1 0 10.8h-5.6m5.9 0 4.6 7.2" fill="none" stroke="#f9c74f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -181,9 +189,34 @@
       </div>
     </section>
 
+    <h2 class="sec">Uygulamalar <small>Apps</small></h2>
+
+    <section class="game app" id="nexorawatch">
+      <img src="/NexoraWatch/store/play-icon-512.png" alt="Nexora Watch" width="512" height="512">
+      <div>
+        <h2>Nexora <em>Watch</em></h2>
+        <p>Arkadaşlarınla aynı videoyu aynı saniyede izle. Oda kur, kodu paylaş; yanında sohbet ve emoji tepkileri.</p>
+        <p class="en">Watch the same video with your friends at the same second. Create a room, share the code, chat while you watch.</p>
+        <div class="cta">
+          <span class="soon"><i></i><span>Çok yakında Google Play'de<small>Coming soon to Google Play</small></span></span>
+          <a class="btn ghost" href="/NexoraWatch/">Uygulama sayfası →</a>
+        </div>
+        <h3>Belgeler <small>Documents</small></h3>
+      <ul class="docs">
+        <li><a href="/NexoraWatch/privacy-policy.html"><span><span class="u">Gizlilik Politikası /</span> <span class="u">Privacy Policy</span></span></a></li>
+        <li><a href="/NexoraWatch/terms.html"><span><span class="u">Kullanım Koşulları /</span> <span class="u">Terms of Use</span></span></a></li>
+        <li><a href="/NexoraWatch/kvkk.html"><span><span class="u">KVKK Aydınlatma Metni /</span> <span class="u">KVKK Information Notice</span></span></a></li>
+        <li><a href="/NexoraWatch/copyright.html"><span><span class="u">Telif Hakkı ve İçerik Kaldırma /</span> <span class="u">Copyright and Content Removal</span></span></a></li>
+        <li><a href="/NexoraWatch/delete-data.html"><span><span class="u">Veri Silme Talebi /</span> <span class="u">Data Deletion Request</span></span></a></li>
+        <li><a href="/NexoraWatch/child-safety.html"><span><span class="u">Çocuk Güvenliği Standartları /</span> <span class="u">Child Safety Standards</span></span></a></li>
+      </ul>
+      </div>
+    </section>
+
     <footer>
       <p class="contact"><span>İstanbul Street Runner</span><a href="mailto:contact.istanbulrunner@proton.me">contact.istanbulrunner@proton.me</a></p>
       <p class="contact"><span>Derby Arena</span><a href="mailto:contact.derbyarena@proton.me">contact.derbyarena@proton.me</a></p>
+      <p class="contact"><span>Nexora Watch</span><a href="mailto:contact.nexorawatch@protonmail.com">contact.nexorawatch@protonmail.com</a></p>
       <p>© 2026 LenstedReal. Google Play, Google LLC'nin ticari markasıdır.</p>
     </footer>
   </div>

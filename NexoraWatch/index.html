@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nexora Watch · LenstedReal</title>
+  <meta name="description" content="Nexora Watch — arkadaşlarınla aynı videoyu aynı saniyede izle. Oda kur, kodu paylaş, sohbet et. Çok yakında Google Play'de. Watch together, in sync.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#0b0b14">
+  <link rel="icon" href="store/play-icon-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg1:#0b0b14; --bg2:#1a1640; --sun:#38bdf8; --red:#e63946; --sky:#59c3ea;
+      --text:#f7f8fb; --muted:#aab3c9; --card:rgba(255,255,255,.06); --line:rgba(255,255,255,.12);
+    }
+    * { box-sizing:border-box; }
+    html, body { margin:0; }
+    html { -webkit-text-size-adjust:100%; }
+    body {
+      min-height:100vh; color:var(--text);
+      font:17px/1.6 "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(1200px 600px at 80% -10%, #8b5cf63d, transparent 60%),
+                  radial-gradient(900px 500px at -10% 110%, #ec489924, transparent 60%),
+                  linear-gradient(180deg, var(--bg2) 0%, var(--bg1) 70%);
+      background-attachment: fixed;
+    }
+    a:focus-visible { outline:2px solid var(--sun); outline-offset:3px; border-radius:10px; }
+    .wrap { max-width:980px; margin:0 auto; padding:28px 20px 48px; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand { display:inline-flex; align-items:center; gap:10px; min-height:44px; font-family:"Fredoka", sans-serif; font-weight:700; font-size:1.25rem; letter-spacing:.02em; color:#fff; text-decoration:none; }
+    .brand em { font-style:normal; color:var(--sun); }
+    .brand b { color:var(--muted); font-weight:700; }
+    .brand:hover b { color:#fff; }
+
+    /* Documents, near the top: always visible, also on a phone. */
+    .docs-top { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 0; }
+    .docs-top a { display:inline-flex; align-items:center; min-height:42px; padding:0 14px; border-radius:999px; background:var(--card); border:1px solid var(--line); color:#fff; text-decoration:none; font-weight:700; font-size:.92rem; transition:border-color .15s ease, background-color .15s ease; }
+    .docs-top a:hover { border-color:var(--sun); background:rgba(255,255,255,.1); }
+
+    .hero { display:grid; grid-template-columns: 1.15fr .85fr; gap:36px; align-items:center; padding:64px 0 48px; }
+    .hero h1 { font-family:"Fredoka", sans-serif; font-weight:700; font-size:clamp(2.2rem, 6vw, 3.6rem); line-height:1.05; margin:0 0 14px; }
+    .hero h1 em { font-style:normal; color:var(--sun); }
+    .hero p { color:var(--muted); font-size:1.1rem; margin:0 0 26px; max-width:46ch; }
+    .cta { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:14px; font-weight:800; text-decoration:none; transition:transform .15s ease, box-shadow .15s ease; }
+    .btn.primary { background:linear-gradient(120deg,#3b82f6,#8b5cf6 50%,#ec4899); color:#fff; box-shadow:0 10px 30px #ec489955; }
+    .btn.primary:hover { transform:translateY(-2px); box-shadow:0 14px 34px #ec489977; }
+    .btn.ghost { border:1px solid var(--line); color:#fff; background:var(--card); }
+    a.btn.ghost:hover { transform:translateY(-2px); border-color:var(--sun); }
+    /* Official Google Play badge, shown as provided (only its transparent margin was trimmed). */
+    .badge { display:inline-flex; transition:transform .15s ease; }
+    .badge:hover { transform:translateY(-2px); }
+    .badge img { display:block; height:56px; width:auto; }
+    .note { color:var(--muted); font-size:.9rem; margin-top:12px; }
+    .hero .note { margin-top:14px; }
+
+    .art { position:relative; display:flex; justify-content:center; }
+    .art img, .art svg { width:min(300px, 80%); height:auto; border-radius:22%; box-shadow:0 30px 80px #0008, 0 0 0 1px var(--line); transform:rotate(-4deg); }
+    .art::before { content:""; position:absolute; inset:10% 20%; background:radial-gradient(circle, #38bdf855, transparent 65%); filter:blur(30px); z-index:-1; }
+
+    .chips { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 56px; }
+    .chip { background:var(--card); border:1px solid var(--line); border-radius:999px; padding:8px 14px; font-weight:600; font-size:.95rem; }
+
+    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:16px; margin-bottom:56px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:20px; }
+    .card h3 { font-family:"Fredoka", sans-serif; font-weight:600; margin:0 0 6px; font-size:1.15rem; }
+    .card p { margin:0; color:var(--muted); font-size:.98rem; }
+
+    /* Documents, near the bottom: one under another, a full-width row each. */
+    .docs-title { font-family:"Fredoka", sans-serif; font-weight:600; font-size:1.25rem; margin:0 0 12px; }
+    .docs-title small { color:var(--muted); font:600 .9rem "Nunito", system-ui, sans-serif; margin-left:6px; }
+    ul.docs { list-style:none; margin:0; padding:0; background:var(--card); border:1px solid var(--line); border-radius:18px; overflow:hidden; }
+    ul.docs li + li { border-top:1px solid var(--line); }
+    ul.docs a { display:flex; align-items:center; justify-content:space-between; gap:14px; min-height:54px; padding:12px 18px; color:#fff; text-decoration:none; font-weight:700; transition:background-color .15s ease; }
+    ul.docs a::after { content:"\203A"; color:var(--sun); font-size:1.5rem; line-height:1; flex-shrink:0; }
+    ul.docs a:hover { background:rgba(255,255,255,.07); }
+    ul.docs .u { display:inline-block; }
+    ul.docs .u + .u { color:#d3daea; font-weight:600; }
+    footer { color:var(--muted); font-size:.85rem; margin-top:22px; }
+    footer p { margin:0 0 4px; }
+    footer .contact { display:flex; flex-wrap:wrap; align-items:center; column-gap:14px; }
+    footer a { display:inline-block; padding:10px 0; color:#cfe9f7; overflow-wrap:anywhere; }
+
+    /* Not on Google Play yet: a status pill stands where the store badge would be. */
+    .soon { display:inline-flex; align-items:center; gap:10px; min-height:56px; padding:8px 20px; border-radius:14px; border:1px solid #38bdf888; background:#38bdf824; color:#d8f1ff; font-weight:800; line-height:1.25; text-align:left; }
+    .soon i { width:10px; height:10px; border-radius:50%; background:#38bdf8; flex-shrink:0; animation:soon 1.8s ease-out infinite; }
+    .soon small { display:block; color:#a9dcf5; font-weight:600; font-size:.82rem; }
+    @keyframes soon { 0% { box-shadow:0 0 0 0 #38bdf899; } 100% { box-shadow:0 0 0 12px #38bdf800; } }
+    .tag { display:inline-flex; align-items:center; min-height:40px; padding:0 16px; border-radius:999px; border:1px dashed rgba(255,255,255,.28); color:var(--muted); font-weight:700; font-size:.92rem; }
+
+    @media (max-width:760px) {
+      .hero { grid-template-columns:1fr; padding:40px 0 32px; text-align:center; }
+      .hero p { margin-left:auto; margin-right:auto; }
+      .cta { justify-content:center; }
+      .art { order:-1; }
+      .art img, .art svg { width:min(220px, 60%); }
+      .chips { justify-content:center; }
+      footer .contact { flex-direction:column; align-items:flex-start; }
+    }
+    @media (prefers-reduced-motion:reduce) { *, *::before, *::after { animation:none !important; transition:none !important; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="../"><b>←</b><span>Lensted<em>Real</em></span></a>
+    </header>
+    <nav class="docs-top" aria-label="Belgeler · Documents">
+      <a href="privacy-policy.html">Gizlilik</a>
+      <a href="terms.html">Koşullar</a>
+      <a href="kvkk.html">KVKK</a>
+      <a href="delete-data.html">Veri silme</a>
+      <a href="child-safety.html">Çocuk güvenliği</a>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <h1>Nexora <em>Watch</em></h1>
+        <p>Arkadaşlarınla aynı videoyu aynı saniyede izle. Oda kur, kodu paylaş; yanında sohbet, emoji tepkileri ve oylamalı video sırası.</p>
+        <div class="cta">
+          <span class="soon"><i></i><span>Çok yakında Google Play'de<small>Coming soon to Google Play</small></span></span>
+          <a class="btn ghost" href="https://nexora.lenstedreal.info">Web'de dene →</a>
+        </div>
+        <p class="note">Watch the same video with your friends at the same second. Create a room, share the code, chat and react while you watch. Already live on the web.</p>
+      </div>
+      <div class="art">
+        <img src="store/play-icon-512.png" alt="Nexora Watch" width="512" height="512">
+      </div>
+    </section>
+
+    <div class="chips">
+      <span class="chip">⏱️ Aynı saniyede oynatma</span>
+      <span class="chip">💬 Sohbet ve emoji tepkileri</span>
+      <span class="chip">🗳️ Oylamalı video sırası</span>
+      <span class="chip">🔗 Kodla ya da bağlantıyla katıl</span>
+      <span class="chip">👤 Hesap gerekmez</span>
+      <span class="chip">🌐 Web ve Android</span>
+    </div>
+
+    <section class="grid">
+      <div class="card">
+        <h3>Birlikte izle</h3>
+        <p>Odadaki herkes videoyu aynı anda görür. Durdurma, ileri sarma ve hız odadaki herkese aynı anda yansır.</p>
+      </div>
+      <div class="card">
+        <h3>Kaynaklar</h3>
+        <p>YouTube, TikTok, Facebook videoları, Twitch kayıtları, Google Drive, video bağlantıları ve kendi videoların. Herkeste aynı anda oynatılamayan kaynaklar eklenmez.</p>
+      </div>
+      <div class="card">
+        <h3>Sohbet ve davet</h3>
+        <p>Oda sohbeti, emoji tepkileri ve birlikte izlediğin kişilere davet bildirimi (yalnızca bildirimlere izin verirsen).</p>
+      </div>
+      <div class="card">
+        <h3>Hesap yok</h3>
+        <p>Kayıt ve giriş yoktur; odaya bir rumuzla girersin. Oda en geç 24 saatte sona erer; sohbet ve oda kayıtları ardından en geç 24 saat içinde silinir.</p>
+      </div>
+      <div class="card">
+        <h3>Reklamlar</h3>
+        <p>Android uygulamasında yalnızca oda dışında, kişiselleştirilmemiş reklam gösterilir. Video izlerken reklam yoktur.</p>
+      </div>
+      <div class="card">
+        <h3>Kimler için</h3>
+        <p>Nexora Watch 16 yaş ve üzeri içindir; 18 yaşından küçükler ebeveyn gözetiminde kullanmalıdır. Uygunsuz mesajlar ve kullanıcılar uygulama içinden bildirilebilir. Ayrıntılar gizlilik politikasında.</p>
+      </div>
+    </section>
+
+    <section id="belgeler">
+      <h2 class="docs-title">Belgeler <small>Documents</small></h2>
+      <ul class="docs">
+        <li><a href="privacy-policy.html"><span><span class="u">Gizlilik Politikası /</span> <span class="u">Privacy Policy</span></span></a></li>
+        <li><a href="terms.html"><span><span class="u">Kullanım Koşulları /</span> <span class="u">Terms of Use</span></span></a></li>
+        <li><a href="kvkk.html"><span><span class="u">KVKK Aydınlatma Metni /</span> <span class="u">KVKK Information Notice</span></span></a></li>
+        <li><a href="copyright.html"><span><span class="u">Telif Hakkı ve İçerik Kaldırma /</span> <span class="u">Copyright and Content Removal</span></span></a></li>
+        <li><a href="delete-data.html"><span><span class="u">Veri Silme Talebi /</span> <span class="u">Data Deletion Request</span></span></a></li>
+        <li><a href="child-safety.html"><span><span class="u">Çocuk Güvenliği Standartları /</span> <span class="u">Child Safety Standards</span></span></a></li>
+      </ul>
+    </section>
+    <footer>
+      <p class="contact"><span>LenstedReal</span><a href="mailto:contact.nexorawatch@protonmail.com">contact.nexorawatch@protonmail.com</a><a href="../">lenstedreal.github.io</a></p>
+      <p>© 2026 LenstedReal. Google Play, Google LLC'nin ticari markasıdır.</p>
+    </footer>
+  </div>
+</body>
+</html>
